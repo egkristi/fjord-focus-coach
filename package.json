@@ -1,10 +1,10 @@
 {
-  "name": "2026-03-22-fjord-focus-coach",
-  "version": "0.1.0",
+  "name": "fjord-focus-coach",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Minimalistic timer that pairs breaths with coastline stats. (Small Node.js CLI tool with sample data processing.)",
+  "description": "Minimalistic timer that pairs breaths with coastline stats.",
   "bin": {
-    "2026-03-22-fjord-focus-coach": "src/index.js"
+    "fjord-focus-coach": "src/index.js"
   },
   "scripts": {
     "start": "node src/index.js"
