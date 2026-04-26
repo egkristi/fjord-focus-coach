@@ -1,28 +1,50 @@
 # Fjord Focus Coach
 
-Minimalistic timer that pairs breaths with coastline stats. It guides short focus/break cycles while narrating a Norwegian shoreline fact so each sprint has a distinct visual anchor.
+Pomodoro-style focus timer that pairs breath cues with Norwegian coastline facts. Each focus cycle is anchored to a different fjord region, giving every sprint a distinct visual and breathing pattern.
 
-## Features
-- Cycle-based timer (default: 25/5 Pomodoro style) with adjustable `--focus`, `--break`, and `--cycles` flags.
-- Breath cues for every simulated minute, plus light-movement prompts during breaks.
-- `--pace` lets you decide how long a "focus minute" lasts in real time (default 5 seconds for quick runs, set to 60 for true minutes).
-- Zero dependencies, pure Node.js (ESM) script.
+## Quick Start
 
-## Quick start
+### Node.js (18+)
+
 ```bash
-cd projects/nightly/2026-02-14-fjord-focus-coach
-node src/index.js --focus 20 --break 3 --cycles 3 --pace 3
-# or install globally
-npm install -g .
-fjord-focus-coach --pace 60 --cycles 4
+node src/index.js --focus 25 --break 5 --cycles 2 --pace 5
+```
+
+### Python (3.10+)
+
+```bash
+python3 coach.py --focus 25 --break 5 --cycles 2 --pace 5
 ```
 
 ### Flags
-| Flag       | Default | Description |
-|------------|---------|-------------|
-| `--focus`  | 25      | Minutes per focus block (simulated). |
-| `--break`  | 5       | Minutes per break. |
-| `--cycles` | 2       | Number of focus/break pairs. |
-| `--pace`   | 5       | Real seconds per simulated minute. Use 60 for real-time Pomodoros. |
 
-The script prints a headline, walks through each block with coastline lore + breath cues, and confirms when the session is finished.
+| Flag       | Default | Description                                        |
+|------------|---------|----------------------------------------------------|
+| `--focus`  | 25      | Minutes per focus block (simulated)                |
+| `--break`  | 5       | Minutes per break                                  |
+| `--cycles` | 2       | Number of focus/break pairs                        |
+| `--pace`   | 5       | Real seconds per simulated minute (60 = realtime)  |
+
+### Examples
+
+```bash
+# Quick demo (2 min focus, 1 min break, 1s per "minute")
+node src/index.js --focus 2 --break 1 --cycles 2 --pace 1
+python3 coach.py --focus 2 --break 1 --cycles 2 --pace 1
+
+# Real 25-minute Pomodoro
+node src/index.js --pace 60
+python3 coach.py --pace 60
+
+# Short 15/3 sprint
+node src/index.js --focus 15 --break 3 --cycles 4 --pace 60
+```
+
+## How It Works
+
+Each cycle picks a Norwegian coastline region (Lofoten, Nordland, Finnmark, Hardangerfjord) as a focus anchor. During focus blocks, you get 4-count breathing cues (inhale, hold, exhale, hold). During breaks, you get light movement prompts (stretch, sip water, shake wrists).
+
+## Dependencies
+
+- **Node.js**: Zero npm dependencies (uses `node:process`, `node:timers/promises`)
+- **Python**: Standard library only (no pip install needed)
