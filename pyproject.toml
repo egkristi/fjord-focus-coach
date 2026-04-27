@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fjord-focus-coach"
+version = "2.0.0"
+description = "Focus timer with live Norwegian fjord weather, daylight data, and breathing exercises."
+requires-python = ">=3.10"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "Erling Kristiansen", email = "erling@rognsund.no" }]
+keywords = ["pomodoro", "focus", "breathing", "norway", "fjord", "wellness"]
+
+[project.scripts]
+coach = "coach:main"
